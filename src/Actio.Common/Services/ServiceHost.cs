@@ -1,4 +1,7 @@
 using System;
+using Actio.Common.Commands;
+using Actio.Common.Events;
+using Actio.Common.RabbitMq;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -9,6 +12,11 @@ namespace Actio.Common.Services
     public class ServiceHost : IServiceHost
     {
         private readonly IWebHost _webHost;
+
+        public ServiceHost(IWebHost webHost)
+        {
+            _webHost = webHost;
+        }
 
         public void Run() => _webHost.Run();
         public static HostBuilder Create<TStartup>(string[] args) where TStartup : class
@@ -22,7 +30,7 @@ namespace Actio.Common.Services
             var webHostBuilder = WebHost.CreateDefaultBuilder(args)
             .UseConfiguration(config)
             .UseStartup<TStartup>();
-
+           
             return new HostBuilder(webHostBuilder.Build());
 
         }
@@ -60,6 +68,24 @@ namespace Actio.Common.Services
             {
                 _webHost = webHost;
                 _bus = bus;
+            }
+
+            public BusBuilder SubscriberToCommand<TCommand>() where TCommand : ICommand
+            {
+                var handler = (IcommandHandler<TCommand>)_webHost
+                .Services.GetService(typeof(IcommandHandler<TCommand>));
+                _bus.WithCommandHandlerAsync(handler);
+
+                return this;
+            }
+
+             public BusBuilder SubscriberToEvent<TEvent>() where TEvent : IEvent
+            {
+                var handler = (IEventHandler<TEvent>)_webHost
+                .Services.GetService(typeof(IEventHandler<TEvent>));
+                _bus.WithEventHandlerAsync(handler);
+
+                return this;
             }
 
              public override ServiceHost Build()
