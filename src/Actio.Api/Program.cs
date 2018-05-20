@@ -10,17 +10,14 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace Actio.Api
-{
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-          ServiceHost.Create<Startup>(args)
-          .UseRabbitMq()
-          .SubscribeToEvent<ActivityCreated>()
-          .Build()
-          .Run();
+namespace Actio.Api {
+    public class Program {
+        public static void Main (string[] args) {
+            ServiceHost.Create<Startup> (args)
+                .UseRabbitMq ()
+                .SubscribeToEvent<ActivityCreated> ()
+                .Build ()
+                .Run ();
         }
 
     }
