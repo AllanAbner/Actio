@@ -24,13 +24,14 @@ namespace Actio.Common.Services
             Console.Title = typeof(TStartup).Namespace;
             var config = new ConfigurationBuilder()
             .AddEnvironmentVariables()
-            .AddCommandLine(args)
+            .AddCommandLine(args)            
             .Build();
 
             var webHostBuilder = WebHost.CreateDefaultBuilder(args)
+            .UseKestrel()
             .UseConfiguration(config)
             .UseStartup<TStartup>();
-           
+            
             return new HostBuilder(webHostBuilder.Build());
 
         }
@@ -70,16 +71,16 @@ namespace Actio.Common.Services
                 _bus = bus;
             }
 
-            public BusBuilder SubscriberToCommand<TCommand>() where TCommand : ICommand
+            public BusBuilder SubscribeToCommand<TCommand>() where TCommand : ICommand
             {
-                var handler = (IcommandHandler<TCommand>)_webHost
-                .Services.GetService(typeof(IcommandHandler<TCommand>));
+                var handler = (ICommandHandler<TCommand>)_webHost
+                .Services.GetService(typeof(ICommandHandler<TCommand>));
                 _bus.WithCommandHandlerAsync(handler);
 
                 return this;
             }
 
-             public BusBuilder SubscriberToEvent<TEvent>() where TEvent : IEvent
+             public BusBuilder SubscribeToEvent<TEvent>() where TEvent : IEvent
             {
                 var handler = (IEventHandler<TEvent>)_webHost
                 .Services.GetService(typeof(IEventHandler<TEvent>));

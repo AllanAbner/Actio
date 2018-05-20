@@ -14,7 +14,7 @@
             "args": [],
             "cwd": "${workspaceFolder}/src/Actio.Api",
             "stopAtEntry": false,
-            "internalConsoleOptions": "openOnSessionStart",
+            "console": "externalTerminal",
             "launchBrowser": {
                 "enabled": true,
                 "args": "${auto-detect-url}",
