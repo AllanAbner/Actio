@@ -15,7 +15,7 @@ namespace Actio.Api {
         public static void Main (string[] args) {
             ServiceHost.Create<Startup> (args)
                 .UseRabbitMq ()
-                .SubscribeToEvent<ActivityCreated> ()
+                .SubscribeToEvent<ActivityCreated>()
                 .Build ()
                 .Run ();
         }
