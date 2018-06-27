@@ -6,14 +6,13 @@ namespace Actio.Common.Events
         {
             this.Email = email;
             this.Name = name;
-
         }
+
         public string Email { get; }
         public string Name { get; }
 
         protected UserCreated()
         {
-
         }
     }
 }

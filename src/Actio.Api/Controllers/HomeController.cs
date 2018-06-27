@@ -7,6 +7,5 @@ namespace Actio.Api.Controllers
     {
         [HttpGet("")]
         public IActionResult Get() => Content("Hello from action Api");
-       
     }
 }

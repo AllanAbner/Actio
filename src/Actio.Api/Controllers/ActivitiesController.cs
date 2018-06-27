@@ -1,8 +1,8 @@
-using System;
-using System.Threading.Tasks;
 using Actio.Common.Commands;
 using Microsoft.AspNetCore.Mvc;
 using RawRabbit;
+using System;
+using System.Threading.Tasks;
 
 namespace Actio.Api.Controllers
 {
@@ -15,12 +15,12 @@ namespace Actio.Api.Controllers
         {
             this.busClient = busClient ?? throw new System.ArgumentNullException(nameof(busClient));
         }
-       
+
         [HttpPost("")]
         public async Task<IActionResult> Post([FromBody]CreateActivity command)
         {
             command.Id = Guid.NewGuid();
-          
+
             command.CreatedAt = DateTime.UtcNow;
             await busClient.PublishAsync(command);
 

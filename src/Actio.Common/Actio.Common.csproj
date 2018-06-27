@@ -6,7 +6,8 @@
 
   <ItemGroup>
   <PackageReference Include="Microsoft.AspNetCore" Version="2.0.0" />
-  <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.0.0" />  
+  <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.0.0" />
+  <PackageReference Include="MongoDB.Driver" Version="2.6.1" />  
     <PackageReference Include="rawrabbit" Version="2.0.0-beta8" />
     <PackageReference Include="rawrabbit.DependencyInjection.ServiceCollection" Version="2.0.0-beta8" />
     <PackageReference Include="rawrabbit.Operations.Publish" Version="2.0.0-beta8" />
