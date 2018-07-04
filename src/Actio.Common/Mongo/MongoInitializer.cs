@@ -10,17 +10,22 @@ namespace Actio.Common.Mongo
 {
     public class MongoInitializer : IDatabaseInitializer
     {
+       
         private bool _initialized;
         private readonly bool _seed;
 
         private readonly IMongoDatabase database;
-        
+
+        private IDatabaseSeeder Seeder { get; set; }
 
         public MongoInitializer(IMongoDatabase database,
+            IDatabaseSeeder seeder,
             IOptions<MongoOptions> options)
         {
             this.database = database;
+            Seeder = seeder;
             _seed = options.Value.Seed;
+            this.Seeder = seeder ?? throw new ArgumentNullException(nameof(seeder));
         }
 
         public async Task InitializeAsync()
@@ -35,6 +40,7 @@ namespace Actio.Common.Mongo
             {
                 return;
             }
+            await Seeder.SeedAsync();
         }
 
         private void RegisterConventions()

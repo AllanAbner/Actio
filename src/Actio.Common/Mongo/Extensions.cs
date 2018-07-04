@@ -14,7 +14,7 @@ namespace Actio.Common.Mongo
             services.AddSingleton(x =>
             {
                 var opt = x.GetService<IOptions<MongoOptions>>();
-                return new MongoClient(opt.Value.ConnectionSting);
+                return new MongoClient(opt.Value.Connectionstring);
             });
 
             services.AddScoped(x =>
@@ -25,6 +25,8 @@ namespace Actio.Common.Mongo
                 return client.GetDatabase(opt.Value.Database);
             });
             services.AddScoped<IDatabaseInitializer, MongoInitializer>();
+            services.AddScoped<IDatabaseSeeder, MongoSeeder>();
+
         }
     }
 }
