@@ -1,9 +1,9 @@
-﻿using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MongoDB.Driver;
 
 namespace Actio.Common.Mongo
 {
@@ -16,7 +16,7 @@ namespace Actio.Common.Mongo
             this.database = database;
         }
 
-        public async  Task SeedAsync()
+        public async Task SeedAsync()
         {
             var collectionCursor = await database.ListCollectionsAsync();
             var collections = await collectionCursor.ToListAsync();

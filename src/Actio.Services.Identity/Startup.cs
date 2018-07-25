@@ -1,4 +1,4 @@
-﻿using Actio.Common.Commands;
+using Actio.Common.Commands;
 using Actio.Common.RabbitMq;
 using Actio.Services.Identity.Handlers;
 using Microsoft.AspNetCore.Builder;

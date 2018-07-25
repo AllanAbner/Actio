@@ -1,10 +1,10 @@
-﻿using Actio.Common.Mongo;
-using Actio.Services.Activities.Domain.Repositories;
-using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Actio.Common.Mongo;
+using Actio.Services.Activities.Domain.Repositories;
+using MongoDB.Driver;
 
 namespace Actio.Services.Activities.Services
 {
@@ -26,7 +26,7 @@ namespace Actio.Services.Activities.Services
                 "hobby"
             };
             await Task.WhenAll(categories.Select(x =>
-            categoryRepository.AddAsync(new Domain.Models.Category(x))));
+                categoryRepository.AddAsync(new Domain.Models.Category(x))));
         }
     }
 }

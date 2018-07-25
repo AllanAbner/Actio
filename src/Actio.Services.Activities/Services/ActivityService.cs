@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Threading.Tasks;
 using Actio.Common.Exceptions;
 using Actio.Services.Activities.Domain.Repositories;

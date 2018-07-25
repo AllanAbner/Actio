@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Actio.Common.Events
 {
@@ -8,9 +8,7 @@ namespace Actio.Common.Events
         public string Reason { get; }
         public string Code { get; }
 
-        protected CreateActivityRejected()
-        {
-        }
+        protected CreateActivityRejected() { }
 
         public CreateActivityRejected(Guid id,
             string reason, string code)

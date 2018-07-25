@@ -1,4 +1,4 @@
-﻿using Actio.Common.Events;
+using Actio.Common.Events;
 using Actio.Common.Services;
 
 namespace Actio.Api

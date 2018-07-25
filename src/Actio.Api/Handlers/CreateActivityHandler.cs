@@ -1,6 +1,6 @@
-using Actio.Common.Events;
 using System;
 using System.Threading.Tasks;
+using Actio.Common.Events;
 
 namespace Actio.Api.Handlers
 {

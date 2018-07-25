@@ -1,5 +1,5 @@
-﻿using Actio.Common.Exceptions;
 using System;
+using Actio.Common.Exceptions;
 
 namespace Actio.Services.Identity.Domain.Models
 {
@@ -11,8 +11,7 @@ namespace Actio.Services.Identity.Domain.Models
         public string Name { get; private set; }
         public DateTime CreatedAt { get; private set; }
 
-        protected User()
-        { }
+        protected User() { }
         public User(string email, string name)
         {
             if (string.IsNullOrWhiteSpace(name))

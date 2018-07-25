@@ -1,4 +1,4 @@
-﻿using Actio.Common.Commands;
+using Actio.Common.Commands;
 using Actio.Common.Mongo;
 using Actio.Common.RabbitMq;
 using Actio.Services.Activities.Domain.Repositories;

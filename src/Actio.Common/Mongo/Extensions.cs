@@ -1,10 +1,10 @@
-﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 
 namespace Actio.Common.Mongo
-{   
+{
     public static class Extensions
     {
         public static void AddMongoDB(this IServiceCollection services, IConfiguration configuration)

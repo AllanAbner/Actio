@@ -11,8 +11,6 @@ namespace Actio.Common.Events
         public string Email { get; }
         public string Name { get; }
 
-        protected UserCreated()
-        {
-        }
+        protected UserCreated() { }
     }
 }

@@ -1,4 +1,4 @@
-﻿using Actio.Api.Handlers;
+using Actio.Api.Handlers;
 using Actio.Common.Events;
 using Actio.Common.RabbitMq;
 using Microsoft.AspNetCore.Builder;

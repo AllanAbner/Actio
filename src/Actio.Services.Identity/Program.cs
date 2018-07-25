@@ -1,4 +1,4 @@
-﻿using Actio.Common.Commands;
+using Actio.Common.Commands;
 using Actio.Common.Services;
 
 namespace Actio.Services.Identity
@@ -8,10 +8,10 @@ namespace Actio.Services.Identity
         public static void Main(string[] args)
         {
             ServiceHost.Create<Startup>(args)
-            .UseRabbitMq()
-            .SubscribeToCommand<CreateUser>()
-            .Build()
-            .Run();
+                .UseRabbitMq()
+                .SubscribeToCommand<CreateUser>()
+                .Build()
+                .Run();
         }
     }
 }

@@ -1,5 +1,5 @@
-﻿using Actio.Common.Exceptions;
 using System;
+using Actio.Common.Exceptions;
 
 namespace Actio.Services.Activities.Domain.Models
 {
@@ -13,8 +13,7 @@ namespace Actio.Services.Activities.Domain.Models
         public DateTime CreatedAt { get; private set; }
 
         protected Activity()
-        {
-        }
+        { }
 
         public Activity(Guid id, Category category, Guid userId,
             string name, string description, DateTime createdAt)

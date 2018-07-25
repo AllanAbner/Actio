@@ -1,4 +1,4 @@
-﻿using Actio.Common.Commands;
+using Actio.Common.Commands;
 using Actio.Common.Services;
 
 namespace Actio.Services.Activities
@@ -8,10 +8,10 @@ namespace Actio.Services.Activities
         public static void Main(string[] args)
         {
             ServiceHost.Create<Startup>(args)
-                   .UseRabbitMq()
-                   .SubscribeToCommand<CreateActivity>()
-                   .Build()
-                   .Run();
+                .UseRabbitMq()
+                .SubscribeToCommand<CreateActivity>()
+                .Build()
+                .Run();
         }
     }
 }

@@ -1,16 +1,16 @@
-﻿using Microsoft.Extensions.Options;
-using MongoDB.Bson.Serialization.Conventions;
-using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Options;
+using MongoDB.Bson.Serialization.Conventions;
+using MongoDB.Driver;
 
 namespace Actio.Common.Mongo
 {
     public class MongoInitializer : IDatabaseInitializer
     {
-       
+
         private bool _initialized;
         private readonly bool _seed;
 
@@ -25,7 +25,8 @@ namespace Actio.Common.Mongo
             this.database = database;
             Seeder = seeder;
             _seed = options.Value.Seed;
-            this.Seeder = seeder ?? throw new ArgumentNullException(nameof(seeder));
+            this.Seeder = seeder ??
+                throw new ArgumentNullException(nameof(seeder));
         }
 
         public async Task InitializeAsync()

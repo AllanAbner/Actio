@@ -1,8 +1,8 @@
+using System;
+using System.Threading.Tasks;
 using Actio.Common.Commands;
 using Actio.Common.Events;
 using RawRabbit;
-using System;
-using System.Threading.Tasks;
 
 namespace Actio.Services.Identity.Handlers
 {
@@ -20,7 +20,7 @@ namespace Actio.Services.Identity.Handlers
             Console.Write($"Creating activity: {Command.Name}");
 
             await busClient.PublishAsync(new ActivityCreated(Command.Id, Command.UserId, Command.Category, Command.Name, Command.Description,
-            Command.CreatedAt));
+                Command.CreatedAt));
         }
     }
 }
