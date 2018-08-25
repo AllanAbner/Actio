@@ -1,10 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Actio.Common.Mongo;
 using Actio.Services.Activities.Domain.Repositories;
 using MongoDB.Driver;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Actio.Services.Activities.Services
 {
@@ -17,6 +16,7 @@ namespace Actio.Services.Activities.Services
         {
             this.categoryRepository = categoryRepository;
         }
+
         protected override async Task CustomSeedAsync()
         {
             var categories = new List<string>

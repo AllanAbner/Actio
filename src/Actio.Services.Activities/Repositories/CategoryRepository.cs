@@ -1,10 +1,10 @@
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Actio.Services.Activities.Domain.Models;
 using Actio.Services.Activities.Domain.Repositories;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Actio.Services.Activities.Repositories
 {
@@ -20,6 +20,7 @@ namespace Actio.Services.Activities.Repositories
         public async Task<Category> GetAsync(string name) => await Collection
             .AsQueryable()
             .FirstOrDefaultAsync(x => x.Name.Equals(name.ToLowerInvariant()));
+
         public async Task AddAsync(Category category) => await Collection.InsertOneAsync(category);
 
         public async Task<IEnumerable<Category>> BrowseAsync() => await Collection

@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace Actio.Common.Mongo
 {
     public class MongoOptions
@@ -9,6 +5,5 @@ namespace Actio.Common.Mongo
         public string Connectionstring { get; set; }
         public string Database { get; set; }
         public bool Seed { get; set; }
-
     }
 }

@@ -1,8 +1,8 @@
-using System;
-using System.Threading.Tasks;
 using Actio.Common.Commands;
 using Actio.Common.Events;
 using RawRabbit;
+using System;
+using System.Threading.Tasks;
 
 namespace Actio.Services.Identity.Handlers
 {

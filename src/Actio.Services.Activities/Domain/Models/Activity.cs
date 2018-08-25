@@ -1,5 +1,5 @@
-using System;
 using Actio.Common.Exceptions;
+using System;
 
 namespace Actio.Services.Activities.Domain.Models
 {

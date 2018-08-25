@@ -1,9 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MongoDB.Driver;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Actio.Common.Mongo
 {
@@ -27,6 +24,7 @@ namespace Actio.Common.Mongo
             }
             await CustomSeedAsync();
         }
+
         protected virtual async Task CustomSeedAsync()
         {
             await Task.CompletedTask;

@@ -1,5 +1,5 @@
-using System;
 using Actio.Common.Exceptions;
+using System;
 
 namespace Actio.Services.Identity.Domain.Models
 {
@@ -11,9 +11,18 @@ namespace Actio.Services.Identity.Domain.Models
         public string Name { get; private set; }
         public DateTime CreatedAt { get; private set; }
 
-        protected User() { }
+        protected User()
+        {
+        }
+
         public User(string email, string name)
         {
+            if (string.IsNullOrWhiteSpace(email))
+            {
+                throw new ActioException("empty_User_email",
+                    "User email can not be empty.");
+            }
+
             if (string.IsNullOrWhiteSpace(name))
             {
                 throw new ActioException("empty_User_name",

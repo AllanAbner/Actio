@@ -1,16 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
 using MongoDB.Bson.Serialization.Conventions;
 using MongoDB.Driver;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Actio.Common.Mongo
 {
     public class MongoInitializer : IDatabaseInitializer
     {
-
         private bool _initialized;
         private readonly bool _seed;
 
@@ -52,12 +50,11 @@ namespace Actio.Common.Mongo
 
         private class MongoConvention : IConventionPack
         {
-            public IEnumerable<IConvention> Conventions => new List<IConvention>()
+            public IEnumerable<IConvention> Conventions => new List<IConvention>
             {
                 new IgnoreExtraElementsConvention(true),
                 new EnumRepresentationConvention(MongoDB.Bson.BsonType.String),
                 new CamelCaseElementNameConvention()
-
             };
         }
     }

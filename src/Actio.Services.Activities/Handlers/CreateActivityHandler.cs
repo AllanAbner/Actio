@@ -1,11 +1,11 @@
-using System;
-using System.Threading.Tasks;
 using Actio.Common.Commands;
 using Actio.Common.Events;
 using Actio.Common.Exceptions;
 using Actio.Services.Activities.Services;
 using Microsoft.Extensions.Logging;
 using RawRabbit;
+using System;
+using System.Threading.Tasks;
 
 namespace Actio.Services.Activities.Handlers
 {
@@ -34,7 +34,8 @@ namespace Actio.Services.Activities.Handlers
                 await busClient.PublishAsync(new ActivityCreated(Command.Id, Command.UserId,
                     Command.Category, Command.Name, Command.Description,
                     Command.CreatedAt));
-                return;
+
+                await Task.CompletedTask;
             }
             catch (ActioException ex)
             {

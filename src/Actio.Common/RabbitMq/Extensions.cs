@@ -1,5 +1,3 @@
-using System.Reflection;
-using System.Threading.Tasks;
 using Actio.Common.Commands;
 using Actio.Common.Events;
 using Microsoft.Extensions.Configuration;
@@ -7,6 +5,8 @@ using Microsoft.Extensions.DependencyInjection;
 using RawRabbit;
 using RawRabbit.Instantiation;
 using RawRabbit.Pipe;
+using System.Reflection;
+using System.Threading.Tasks;
 
 namespace Actio.Common.RabbitMq
 {

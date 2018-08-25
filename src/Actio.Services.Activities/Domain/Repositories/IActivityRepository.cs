@@ -1,7 +1,7 @@
+using Actio.Services.Activities.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Actio.Services.Activities.Domain.Models;
 
 namespace Actio.Services.Activities.Domain.Repositories
 {
@@ -10,6 +10,7 @@ namespace Actio.Services.Activities.Domain.Repositories
         Task<Activity> GetAsync(Guid id);
 
         Task AddAsync(Activity activity);
+
         Task<IEnumerable<Activity>> BrowseAsync();
     }
 }

@@ -7,7 +7,9 @@ namespace Actio.Common.Events
 
         public string Code { get; }
 
-        protected CreatedUserRejected() { }
+        protected CreatedUserRejected()
+        {
+        }
 
         public CreatedUserRejected(string email, string reason, string code)
         {

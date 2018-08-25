@@ -1,7 +1,8 @@
-using System;
-using System.Threading.Tasks;
 using Actio.Common.Exceptions;
 using Actio.Services.Activities.Domain.Repositories;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Actio.Services.Activities.Services
 {
@@ -27,9 +28,12 @@ namespace Actio.Services.Activities.Services
                 throw new ActioException("category_not_found",
                     $"Category: '{category}' was not found.");
             }
-            var activity = new Domain.Models.Activity(id, activityCategory, userId,
-                name, description, createdAt);
-            await activityRepository.AddAsync(activity);
+            if (!activityRepository.BrowseAsync().GetAwaiter().GetResult().Any(x => x.Name.Equals(name)))
+            {
+                var activity = new Domain.Models.Activity(id, activityCategory, userId,
+               name, description, createdAt);
+                await activityRepository.AddAsync(activity);
+            }
         }
     }
 }
