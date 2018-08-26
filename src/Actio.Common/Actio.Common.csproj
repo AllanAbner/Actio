@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -7,12 +7,20 @@
   <ItemGroup>
   <PackageReference Include="Microsoft.AspNetCore" Version="2.0.0" />
   <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="2.0.0" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="5.1.4" />
   <PackageReference Include="MongoDB.Driver" Version="2.6.1" />  
     <PackageReference Include="rawrabbit" Version="2.0.0-beta8" />
     <PackageReference Include="rawrabbit.DependencyInjection.ServiceCollection" Version="2.0.0-beta8" />
     <PackageReference Include="rawrabbit.Operations.Publish" Version="2.0.0-beta8" />
     <PackageReference Include="rawrabbit.Operations.Subscribe" Version="2.0.0-beta8" />
     
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.IdentityModel.Tokens.Jwt">
+      <HintPath>..\..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\system.identitymodel.tokens.jwt\5.1.4\lib\netstandard1.4\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

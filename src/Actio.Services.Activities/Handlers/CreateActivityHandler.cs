@@ -23,29 +23,29 @@ namespace Actio.Services.Activities.Handlers
             this.logger = logger;
         }
 
-        public async Task HandleAsync(CreateActivity Command)
+        public async Task HandleAsync(CreateActivity command)
         {
-            logger.LogInformation($"Creating activity: {Command.Name} at {Command.CreatedAt}");
+            logger.LogInformation($"Creating activity: {command.Name} at {command.CreatedAt}");
             try
             {
-                await activityService.AddAsync(Command.Id, Command.UserId,
-                    Command.Category, Command.Name, Command.Description, Command.CreatedAt);
+                await activityService.AddAsync(command.Id, command.UserId,
+                    command.Category, command.Name, command.Description, command.CreatedAt);
 
-                await busClient.PublishAsync(new ActivityCreated(Command.Id, Command.UserId,
-                    Command.Category, Command.Name, Command.Description,
-                    Command.CreatedAt));
+                await busClient.PublishAsync(new ActivityCreated(command.Id, command.UserId,
+                    command.Category, command.Name, command.Description,
+                    command.CreatedAt));
 
                 await Task.CompletedTask;
             }
             catch (ActioException ex)
             {
                 await busClient
-                    .PublishAsync(new CreateActivityRejected(Command.Id,
+                    .PublishAsync(new CreateActivityRejected(command.Id,
                         ex.Code, ex.Message));
             }
             catch (Exception ex)
             {
-                await busClient.PublishAsync(new CreateActivityRejected(Command.Id,
+                await busClient.PublishAsync(new CreateActivityRejected(command.Id,
                     "Error", ex.Message));
                 logger.LogError(ex.Message);
             }

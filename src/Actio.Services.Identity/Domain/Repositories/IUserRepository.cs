@@ -8,8 +8,8 @@ namespace Actio.Services.Identity.Domain.Repositories
     {
         Task<User> GetAsync(Guid id);
 
-        Task<User> GetAsync(string emamail);
+        Task<User> GetAsync(string email);
 
-        Task AddUser(User user);
+        Task AddAsync(User user);
     }
 }
