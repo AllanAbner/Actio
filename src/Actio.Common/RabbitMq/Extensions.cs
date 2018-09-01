@@ -13,7 +13,7 @@ namespace Actio.Common.RabbitMq
     public static class Extensions
     {
         public static Task WithCommandHandlerAsync<TCommand>(this IBusClient bus,
-            ICommandHandler<TCommand> handler) where TCommand : ICommand => bus.SubscribeAsync<TCommand>(msg => handler.HandleAsync(msg),
+            ICommandHandler<TCommand> handler) where TCommand : ICommand => bus.SubscribeAsync<TCommand>(msg =>  handler.HandleAsync(msg),
             ctx => ctx.UseConsumerConfiguration(cfg =>
                 cfg.FromDeclaredQueue(q => q.WithName(GetQueueName<TCommand>()))));
 
@@ -29,11 +29,13 @@ namespace Actio.Common.RabbitMq
             var options = new RabbitMqOptions();
             var section = configuration.GetSection("rabbitmq");
             section.Bind(options);
+            
             var client = RawRabbitFactory.CreateSingleton(new RawRabbitOptions
             {
                 ClientConfiguration = options
-            });
+            }); 
             services.AddSingleton<IBusClient>(_ => client);
+            
         }
     }
 }

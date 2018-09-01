@@ -1,4 +1,5 @@
 using Actio.Api.Handlers;
+using Actio.Common.Auth;
 using Actio.Common.Events;
 using Actio.Common.RabbitMq;
 using Microsoft.AspNetCore.Builder;
@@ -21,6 +22,7 @@ namespace Actio.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddJwt(Configuration);
             services.AddRabbitMq(Configuration);
             services.AddScoped<IEventHandler<ActivityCreated>, CreateActivityHandler>();
         }
@@ -32,7 +34,8 @@ namespace Actio.Api
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            
+            app.UseAuthentication();
             app.UseMvc();
         }
     }

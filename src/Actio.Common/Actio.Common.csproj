@@ -14,6 +14,7 @@
     <PackageReference Include="rawrabbit.DependencyInjection.ServiceCollection" Version="2.0.0-beta8" />
     <PackageReference Include="rawrabbit.Operations.Publish" Version="2.0.0-beta8" />
     <PackageReference Include="rawrabbit.Operations.Subscribe" Version="2.0.0-beta8" />
+    <PackageReference Include="RawRabbit.vNext" Version="1.10.4" />
     
   </ItemGroup>
 
