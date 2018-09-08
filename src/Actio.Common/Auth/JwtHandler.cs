@@ -31,7 +31,7 @@ namespace Actio.Common.Auth
 
         public JsonWebToken Create(Guid userId)
         {
-            var nowUtc = DateTime.UtcNow;
+            var nowUtc = DateTime.UtcNow.AddHours(2);
             var expires = nowUtc.AddMinutes(_options.ExpiryMinutes);
             var centuryBegin = new DateTime(1970, 1, 1).ToUniversalTime();
             var exp = (long)(new TimeSpan(expires.Ticks - centuryBegin.Ticks).TotalSeconds);

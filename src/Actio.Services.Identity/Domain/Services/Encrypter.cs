@@ -20,9 +20,10 @@ namespace Actio.Services.Identity.Domain.Services
 
         public string GetHash(string value, string salt)
         {
-            var pbkdf2 = new Rfc2898DeriveBytes(value, GetBytes(salt), DeriveBytesIterationsCount);
-
-            return Convert.ToBase64String(pbkdf2.GetBytes(SaltSize));
+            using (var pbkdf2 = new Rfc2898DeriveBytes(value, GetBytes(salt), DeriveBytesIterationsCount))
+            {
+                return Convert.ToBase64String(pbkdf2.GetBytes(SaltSize));
+            }
         }
 
         private static byte[] GetBytes(string value)
